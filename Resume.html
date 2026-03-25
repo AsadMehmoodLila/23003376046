@@ -5,345 +5,338 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asad Mehmood</title>
     <style>
-        /* === CSS STYLES === */
-        
-        /* Reset default margins and set a clean, modern font */
+        :root {
+            --ink: #10263a;
+            --muted: #59728a;
+            --panel: #ffffff;
+            --accent: #1a9d8f;
+            --accent-deep: #0f766d;
+            --paper: #edf3f8;
+            --chip: #e5eef6;
+            --edge: #d6e2ec;
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* The page background */
         body {
-            background-color: #e2e8f0;
-            display: flex;
-            justify-content: center;
-            padding: 40px 20px;
-            color: #333;
+            font-family: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 5% 5%, #ffffff 0, #f3f8fc 22%, transparent 40%),
+                radial-gradient(circle at 95% 10%, #e6fff5 0, transparent 35%),
+                var(--paper);
+            padding: 36px 18px;
         }
 
-        /* The main "piece of paper" */
-        .resume-container {
-            display: flex;
-            max-width: 950px;
-            width: 100%;
-            background: #ffffff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            border-radius: 8px;
-            overflow: hidden; /* Keeps the rounded corners neat */
+        .sheet {
+            width: min(1040px, 100%);
+            margin: 0 auto;
+            background: var(--panel);
+            border: 1px solid var(--edge);
+            border-radius: 16px;
+            box-shadow: 0 20px 45px rgba(16, 38, 58, 0.12);
+            display: grid;
+            grid-template-columns: 310px 1fr;
+            overflow: hidden;
         }
 
-        /* --- LEFT COLUMN (SIDEBAR) --- */
-        .sidebar {
-            width: 33%;
-            background-color: #f8f9fa;
-            padding: 40px 30px;
-            border-right: 1px solid #eaeaea;
+        .left-rail {
+            background: linear-gradient(180deg, #f4f8fc 0%, #edf3f8 100%);
+            border-right: 1px solid var(--edge);
+            padding: 30px 24px;
         }
 
-        .profile-img-container {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .profile-img {
-            width: 170px;
-            height: 170px;
+        .portrait {
+            width: 168px;
+            height: 168px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #009688; /* Teal border made much thinner */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 0 auto 24px;
+            border: 3px solid #38b2a3;
+            box-shadow: 0 10px 28px rgba(23, 95, 88, 0.25);
         }
 
-        /* Contact List Styling */
-        .contact-list {
-            list-style: none;
-            margin-bottom: 35px;
+        .left-group {
+            margin-bottom: 26px;
         }
 
-        .contact-list li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            color: #555;
-            word-break: break-all;
-        }
-
-        .icon {
-            margin-right: 12px;
-            font-size: 1.2rem;
-        }
-
-        /* Sidebar Sections */
-        .sidebar-section {
-            margin-bottom: 30px;
-        }
-
-        .section-title-sm {
-            font-size: 1.05rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #ffffff;
-            background-color: #009688; /* Highlight on the back of the text */
-            margin-bottom: 15px;
-            padding: 6px 12px;
-            border-radius: 4px;
+        .rail-title {
             display: inline-block;
-        }
-
-        .skills-list {
-            list-style: none;
-        }
-
-        .skills-list li {
-            background-color: #e9ecef;
-            color: #333;
-            display: inline-block;
-            padding: 6px 14px;
-            margin: 0 6px 10px 0;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .sidebar-text {
-            font-size: 0.9rem;
-            color: #555;
-            line-height: 1.5;
-            margin-bottom: 8px;
-        }
-
-        .sidebar-bold {
-            font-weight: 700;
-            color: #333;
-        }
-
-        /* --- RIGHT COLUMN (MAIN CONTENT) --- */
-        .main-content {
-            width: 67%;
-            padding: 50px;
-        }
-
-        /* Added background box to the header */
-        .header {
-            background-color: #009688;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .header h1 {
-            font-size: 3rem;
-            letter-spacing: 2px;
-            color: #ffffff; /* Changed to white */
-            text-transform: uppercase;
-        }
-
-        .header h2 {
-            font-size: 1.15rem;
-            color: #e0f2f1; /* Changed to a light teal for contrast */
-            margin-top: 5px;
-            font-weight: 400;
-            font-style: italic;
+            font-size: 1rem;
+            font-weight: 800;
             letter-spacing: 1px;
             text-transform: uppercase;
-        }
-
-        .summary {
-            margin-top: 20px;
-            line-height: 1.7;
-            color: #ffffff; /* Changed to white */
-            font-size: 1rem;
-        }
-
-        .main-section {
-            margin-top: 40px;
-        }
-
-        .section-title {
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             color: #ffffff;
-            background-color: #009688; /* Highlight on the back of the text */
-            margin-bottom: 20px;
-            padding: 6px 15px;
-            border-radius: 4px;
-            display: inline-block;
+            background: linear-gradient(90deg, var(--accent), var(--accent-deep));
+            border-radius: 7px;
+            padding: 7px 12px;
+            margin-bottom: 12px;
         }
 
-        /* Items for Experience, Education, Projects */
-        .item {
-            margin-bottom: 25px;
+        .contacts {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+            color: #355067;
+            font-size: 0.98rem;
+            word-break: break-word;
         }
 
-        .item-header {
+        .contacts li {
+            line-height: 1.35;
+        }
+
+        .chips {
+            list-style: none;
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 5px;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
-        .item-title {
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: #2c3e50;
-        }
-
-        .item-date {
+        .chips li {
+            background: var(--chip);
+            color: #253b51;
+            border: 1px solid #d3e0eb;
+            border-radius: 999px;
+            padding: 6px 12px;
             font-size: 0.9rem;
-            color: #888;
-            font-weight: 500;
+            font-weight: 700;
         }
 
-        .item-subtitle {
-            font-weight: 500;
-            font-style: italic;
-            font-size: 0.95rem;
-            color: #555; /* Changed back to dark gray to match PDF */
-            margin-bottom: 8px;
-        }
-
-        .item-desc {
+        .left-text {
+            color: #355067;
             line-height: 1.6;
             font-size: 0.95rem;
-            color: #555;
         }
 
+        .left-text strong {
+            color: #162f46;
+        }
+
+        .left-text a {
+            color: #0b5f57;
+            text-decoration: underline;
+        }
+
+        .content {
+            padding: 30px 34px 36px;
+        }
+
+        .hero {
+            background: linear-gradient(140deg, #1a9d8f 0%, #15887c 56%, #116a62 100%);
+            color: #ffffff;
+            padding: 26px 28px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            box-shadow: 0 12px 25px rgba(13, 110, 99, 0.24);
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            letter-spacing: 1px;
+        }
+
+        .hero .role {
+            margin-top: 6px;
+            font-size: 1.32rem;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        .hero .intro {
+            margin-top: 14px;
+            font-size: 1.07rem;
+            line-height: 1.7;
+            max-width: 68ch;
+        }
+
+        .block {
+            margin-top: 28px;
+        }
+
+        .block h3 {
+            color: #ffffff;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            font-size: 1.35rem;
+            background: linear-gradient(90deg, #219b8f, #14766c);
+            padding: 6px 14px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+
+        .entry {
+            margin-bottom: 18px;
+        }
+
+        .entry-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: baseline;
+        }
+
+        .entry-title {
+            color: #102b43;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .entry-date {
+            color: var(--muted);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .entry-subtitle {
+            font-style: italic;
+            color: #3e566d;
+            margin-top: 4px;
+            margin-bottom: 6px;
+            font-size: 1.05rem;
+        }
+
+        .entry-desc {
+            color: #3a556e;
+            line-height: 1.65;
+            font-size: 0.98rem;
+        }
+
+        @media (max-width: 880px) {
+            .sheet {
+                grid-template-columns: 1fr;
+            }
+
+            .left-rail {
+                border-right: 0;
+                border-bottom: 1px solid var(--edge);
+            }
+
+            .content {
+                padding: 24px 20px 30px;
+            }
+
+            .hero .role {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <main class="sheet">
+        <aside class="left-rail">
+            <img src="Pic.png" alt="Asad Mehmood profile" class="portrait">
 
-    <!-- Main Wrapper -->
-    <div class="resume-container">
-        
-        <!-- LEFT COLUMN -->
-        <div class="sidebar">
-            <div class="profile-img-container">
-                <img src="Pic.png" alt="Asad Mehmood" class="profile-img">
-            </div>
+            <section class="left-group">
+                <h2 class="rail-title">Contact</h2>
+                <ul class="contacts">
+                    <li>asadmehmood@4804</li>
+                    <li>03277550363</li>
+                    <li>Pakistan Chowk, Sialkot, Pakistan</li>
+                </ul>
+            </section>
 
-            <!-- Contact Info -->
-            <ul class="contact-list">
-                <li><span class="icon">✉️</span> asadmehmood@4804</li>
-                <li><span class="icon">📱</span> 03277550363</li>
-                <li><span class="icon">📍</span> Pakistan Chowk, Sialkot, Pakistan</li>
-            </ul>
-
-            <!-- Skills -->
-            <div class="sidebar-section">
-                <h3 class="section-title-sm">Skills</h3>
-                <ul class="skills-list">
+            <section class="left-group">
+                <h2 class="rail-title">Skills</h2>
+                <ul class="chips">
                     <li>C++</li>
                     <li>Python</li>
                     <li>Assembly</li>
                 </ul>
-            </div>
+            </section>
 
-            <!-- Achievements -->
-            <div class="sidebar-section">
-                <h3 class="section-title-sm">Achievements</h3>
-                <p class="sidebar-text sidebar-bold">Soft Skills Training</p>
-                <p class="sidebar-text" style="color: #555; font-style: italic;">OEC & ICMPD</p>
-                <p class="sidebar-text">Successfully completed an online soft skills and career readiness training program (14 hours). Link: <a href="https://softskills.oec.gov.pk/certificate/e8ffb10f" target="_blank" style="color: #333; text-decoration: underline; font-weight: normal;">Government Website</a></p>
-                <p class="sidebar-text" style="font-size: 0.8rem; color: #888;">11/2025</p>
-            </div>
+            <section class="left-group">
+                <h2 class="rail-title">Achievement</h2>
+                <p class="left-text">
+                    <strong>Soft Skills Training</strong><br>
+                    OEC &amp; ICMPD<br>
+                    Completed a 14-hour online soft skills and career readiness training program.
+                    Certificate: <a href="https://softskills.oec.gov.pk/certificate/e8ffb10f" target="_blank" rel="noopener noreferrer">Government Website</a><br>
+                    11/2025
+                </p>
+            </section>
 
-            <!-- Languages -->
-            <div class="sidebar-section">
-                <h3 class="section-title-sm">Languages</h3>
-                <p class="sidebar-text sidebar-bold">English</p>
-                <p class="sidebar-text">Full Professional Proficiency</p>
-            </div>
+            <section class="left-group">
+                <h2 class="rail-title">Language</h2>
+                <p class="left-text"><strong>English</strong><br>Full Professional Proficiency</p>
+            </section>
 
-            <!-- Interests -->
-            <div class="sidebar-section">
-                <h3 class="section-title-sm">Interests</h3>
-                <p class="sidebar-text">Game Development</p>
-            </div>
-        </div>
+            <section class="left-group">
+                <h2 class="rail-title">Interest</h2>
+                <p class="left-text">Game Development</p>
+            </section>
+        </aside>
 
-
-        <!-- RIGHT COLUMN -->
-        <div class="main-content">
-            
-            <!-- Header -->
-            <div class="header">
+        <section class="content">
+            <header class="hero">
                 <h1>Asad Mehmood</h1>
-                <h2>AI & Software Development Student</h2>
-                <p class="summary">
+                <p class="role">AI &amp; Software Development Student</p>
+                <p class="intro">
                     AI undergraduate with strong problem-solving skills in C++ and Python, focused on building efficient solutions using core computer science and AI concepts.
                 </p>
-            </div>
+            </header>
 
-            <!-- Work Experience -->
-            <div class="main-section">
-                <h3 class="section-title">Work Experience</h3>
-                
-                <div class="item">
-                    <div class="item-header">
-                        <div class="item-title">Student Developer</div>
+            <section class="block">
+                <h3>Work Experience</h3>
+                <article class="entry">
+                    <div class="entry-head">
+                        <p class="entry-title">Student Developer</p>
                     </div>
-                    <div class="item-subtitle">Organization</div>
-                    <p class="item-desc">Academic Projects</p>
-                </div>
-            </div>
+                    <p class="entry-subtitle">Organization</p>
+                    <p class="entry-desc">Academic Projects</p>
+                </article>
+            </section>
 
-            <!-- Education -->
-            <div class="main-section">
-                <h3 class="section-title">Education</h3>
-                
-                <div class="item">
-                    <div class="item-header">
-                        <div class="item-title">BS Artificial Intelligence</div>
-                        <div class="item-date">2023 - 2027</div>
+            <section class="block">
+                <h3>Education</h3>
+                <article class="entry">
+                    <div class="entry-head">
+                        <p class="entry-title">BS Artificial Intelligence</p>
+                        <p class="entry-date">2023 - 2027</p>
                     </div>
-                    <div class="item-subtitle">University of Management and Technology</div>
-                </div>
-
-                <div class="item">
-                    <div class="item-header">
-                        <div class="item-title">Intermediate (Pre-Medical)</div>
-                        <div class="item-date">2021 - 2023</div>
+                    <p class="entry-subtitle">University of Management and Technology</p>
+                </article>
+                <article class="entry">
+                    <div class="entry-head">
+                        <p class="entry-title">Intermediate (Pre-Medical)</p>
+                        <p class="entry-date">2021 - 2023</p>
                     </div>
-                    <div class="item-subtitle">Superior College, Pakistan</div>
-                </div>
-            </div>
+                    <p class="entry-subtitle">Superior College, Pakistan</p>
+                </article>
+            </section>
 
-            <!-- Projects -->
-            <div class="main-section">
-                <h3 class="section-title">Projects</h3>
-                
-                <div class="item">
-                    <div class="item-title">Snake Game (Assembly Language)</div>
-                    <div class="item-subtitle">Developer</div>
-                    <p class="item-desc">
-                        Developed a fully functional snake game using Assembly language. Implemented core game mechanics including movement, collision detection, and score tracking, while working with low-level memory and processor operations.
+            <section class="block">
+                <h3>Projects</h3>
+                <article class="entry">
+                    <p class="entry-title">Snake Game (Assembly Language)</p>
+                    <p class="entry-subtitle">Developer</p>
+                    <p class="entry-desc">
+                        Built a playable snake game in Assembly language with movement logic, collision checks, and score tracking while managing low-level memory and processor operations.
                     </p>
-                </div>
-
-                <div class="item">
-                    <div class="item-title">Facial Emotion Detection System</div>
-                    <div class="item-subtitle">AI Developer</div>
-                    <p class="item-desc">
-                        Built a Python-based system to detect human emotions from facial expressions. Applied machine learning and basic computer vision techniques to process image data and classify emotional states.
+                </article>
+                <article class="entry">
+                    <p class="entry-title">Facial Emotion Detection System</p>
+                    <p class="entry-subtitle">AI Developer</p>
+                    <p class="entry-desc">
+                        Developed a Python system to detect emotions from facial expressions using machine learning and core computer vision pipelines.
                     </p>
-                </div>
-
-                <div class="item">
-                    <div class="item-title">Nutrition Information System (RAG - NLP)</div>
-                    <div class="item-subtitle">NLP Developer</div>
-                    <p class="item-desc">
-                        Developed a Retrieval-Augmented Generation (RAG) system to provide nutrition-related information. Integrated NLP techniques to retrieve relevant data and generate accurate, context-based responses.
+                </article>
+                <article class="entry">
+                    <p class="entry-title">Nutrition Information System (RAG - NLP)</p>
+                    <p class="entry-subtitle">NLP Developer</p>
+                    <p class="entry-desc">
+                        Designed a Retrieval-Augmented Generation setup that retrieves nutrition context and produces focused, relevant responses.
                     </p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
+                </article>
+            </section>
+        </section>
+    </main>
 </body>
 </html>
